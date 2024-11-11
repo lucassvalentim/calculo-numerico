@@ -26,6 +26,7 @@ int main(){
     int k = 0;
     printf("==================== iteracao %d ====================\n", k);
     printf("X%d = %lf\n", k, x_anterior);
+    printf("X%d = %lf\n", k+1, x_atual);
     printf("f(%lf) = %lf\n", x_atual, f(x_atual));
     printf("\n");
     
@@ -38,6 +39,7 @@ int main(){
         printf("==================== iteracao %d ====================\n", k);
 
         printf("X%d = %lf\n", k, x_anterior);
+        printf("X%d = %lf\n", k+1, x_atual);
         printf("f(%lf) = %.9lf\n", x_atual, f(x_atual));
         printf("\n");
     }
