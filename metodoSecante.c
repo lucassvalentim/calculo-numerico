@@ -25,6 +25,8 @@ int main(){
     printf("==================== iteracao %d ====================\n", k);
     printf("X%d = %lf\n", k, x_anterior1);
     printf("X%d = %lf\n", k+1, x_anterior2);
+    printf("X%d = %lf\n", k+2, x_atual);
+
     printf("f(%lf) = %lf\n", x_atual, f(x_atual));
     printf("\n");
     
@@ -42,12 +44,13 @@ int main(){
 
         printf("X%d = %lf\n", k, x_anterior1);
         printf("X%d = %lf\n", k+1, x_anterior2);
+        printf("X%d = %lf\n", k+2, x_atual);
 
         printf("f(%lf) = %.9lf\n", x_atual, f(x_atual));
         printf("\n");
     }
 
-    printf("X%d = %lf\nNumero de iteracoes: %d\n", k+1, x_atual, k+1);
+    printf("X_aproximado = %lf\nNumero de iteracoes: %d\n", x_atual, k+1);
     printf("f(x) = %.9lf\n", f(x_atual));
     return 0;
 }

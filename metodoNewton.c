@@ -44,7 +44,7 @@ int main(){
         printf("\n");
     }
 
-    printf("X%d = %lf\nNumero de iteracoes: %d\n", k+1, x_atual, k+1);
+    printf("X_aproximado = %lf\nNumero de iteracoes: %d\n", x_atual, k+1);
     printf("f(x) = %.9lf\n", f(x_atual));
     return 0;
 }
