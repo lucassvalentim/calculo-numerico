@@ -3,13 +3,13 @@
 #include <math.h>
 
 double f(double x){
-    return exp(-(x*x)) - cos(x);
+    return (x*x*x) - 3.5*x*x + 4*x - 1.5;
 }
 
 int main(){
 
-    double a = 1, b = 2;
-    double precisao = 1e-4;
+    double a = 0.5, b = 2;
+    double precisao = 0.01;
 
     double M, x;
     long long k = 0;
@@ -35,5 +35,7 @@ int main(){
     printf("[%lf, %lf]\n", a, b);
     printf("Numero de interacoes foram: %lld\n", k);
     printf("Erro: %lf\n", (b-a));
+
+
     return 0;
 }

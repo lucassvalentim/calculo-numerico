@@ -3,24 +3,22 @@
 #include <math.h>
 
 double f(double x){
-    return exp(-(x*x)) - cos(x);
+    // return exp(-(x*x)) - cos(x);
+    return (x*x*x) - 3.5*x*x + 4*x - 1.5;
 }
 
 double derivada_f(double x){
-    return (-2)*exp(-(x*x))*x + sin(x);
+    // return (-2)*exp(-(x*x))*x + sin(x);
+    return 3*x*x - 7*x + 4;
 }
 
 
 int main(){
 
-    //intervalo
-    int a = 1;
-    int b = 2;
-
     //precisao
-    double erro = 1e-4;
+    double erro = 0.01;
 
-    double x_anterior = 1.5;
+    double x_anterior = 1.496094;
     double x_atual = x_anterior - (f(x_anterior)/derivada_f(x_anterior));
     
     int k = 0;
