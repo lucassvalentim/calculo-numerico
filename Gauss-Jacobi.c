@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 const double ERRO_TOLERANCIA = 0.05;
 
@@ -94,7 +95,15 @@ double *resolverEquacao(double **C, double *x, double *g, int n) {
     for (int i = 0; i < n; i++) {
         resultado[i] = g[i];
         for (int j = 0; j < n; j++) {
-            resultado[i] += C[i][j] * x[j];
+            double produto = C[i][j] * x[j];
+
+            if (isinf(resultado[i] + produto) || isnan(resultado[i] + produto)) {  // Verifica infinito ou NaN
+                printf("Erro numérico detectado! C[%d][%d] * x[%d] gerou um valor inválido.\n", i, j, j);
+                free(resultado);
+                return NULL;
+            }
+
+            resultado[i] += produto;
         }
     }
     return resultado;
@@ -125,10 +134,11 @@ double *gaussJacobi(double **C, double *xInicial, double *g, int n) {
     do {
         xAnterior = xAtual;
         xAtual = resolverEquacao(C, xAnterior, g, n);
+        if(xAtual == NULL) break;
         imprimirVetor(xAtual, n);
     } while (verificarErro(xAtual, xAnterior, n));
     
-    return xAtual;
+    return xAnterior;
 }
 
 int main() {
